@@ -5,7 +5,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 public class MikPlayer implements SurfaceHolder.Callback {
-    static {
+//    static {
 //        System.loadLibrary("avcodec");
 //        System.loadLibrary("avdevice");
 //        System.loadLibrary("avfilter");
@@ -14,8 +14,8 @@ public class MikPlayer implements SurfaceHolder.Callback {
 //        System.loadLibrary("postproc");
 //        System.loadLibrary("swresample");
 //        System.loadLibrary("swscale");
-        System.loadLibrary("MikPlayer");
-    }
+//        System.loadLibrary("MikPlayer");
+//    }
 
     private SurfaceView surfaceView;
 

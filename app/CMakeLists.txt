@@ -9,6 +9,10 @@ add_library(
 
 set(libs ${CMAKE_SOURCE_DIR}/libs/armeabi-v7a)
 include_directories(src/main/cpp/include)
+include_directories(src/main/cpp/librtmp)
+
+add_subdirectory(src/main/cpp/librtmp)
+
 #以导入的形式引入库
 add_library(
     avcodec
@@ -98,6 +102,28 @@ set_target_properties(
     IMPORTED_LOCATION
     ${libs}/libswscale.so
 )
+add_library(
+    x264
+    STATIC
+    IMPORTED
+)
+set_target_properties(
+    x264
+    PROPERTIES
+    IMPORTED_LOCATION
+    ${libs}/libx264.a
+)
+add_library(
+    faac
+    STATIC
+    IMPORTED
+)
+set_target_properties(
+    faac
+    PROPERTIES
+    IMPORTED_LOCATION
+    ${libs}/libfaac.a
+)
 
 find_library(
               log-lib
@@ -115,4 +141,7 @@ target_link_libraries(
                        swscale
                        android
                        OpenSLES
+                       x264
+                       faac
+                       rtmp
                        ${log-lib} )
